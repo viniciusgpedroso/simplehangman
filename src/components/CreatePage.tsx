@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { IEntry } from '../types/types';
 import { Buffer } from 'buffer';
 import Entry from './Entry';
+import { fisherYates } from '../types/utils';
 
 const CreatePage = () => {
   const navigate = useNavigate();
@@ -55,23 +56,26 @@ const CreatePage = () => {
 };
 
 const getEmptyEntry = (): IEntry => {
-  return { words: '', category: '', hint: '' };
+  return { w: '', c: '', h: '' };
 };
 
 const createBase64JSON = (entries: IEntry[]): string => {
   const processedEntries = entries.reduce<IEntry[]>((acc, entry) => {
-    const words = entry.words.toUpperCase().trim();
-    const category = entry.category.toLocaleUpperCase().trim();
-    const hint = entry.hint.toLocaleUpperCase().trim();
+    const words = entry.w.toUpperCase().trim();
+    const category = entry.c.toLocaleUpperCase().trim();
+    const hint = entry.h.toLocaleUpperCase().trim();
     if (words.length > 0 && category.length > 0) {
       acc.push({
-        words,
-        category,
-        hint,
+        w: words,
+        c: category,
+        h: hint,
       });
     }
     return acc;
   }, []);
+
+  fisherYates(processedEntries);
+  console.log(processedEntries);
   const entriesJSON = JSON.stringify(processedEntries);
   return Buffer.from(entriesJSON, 'utf8').toString('base64');
 };

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { IEntry } from "../types/types";
+import { useEffect, useState } from 'react';
+import { IEntry } from '../types/types';
 
 interface EntryProps {
   index: number;
@@ -8,9 +8,9 @@ interface EntryProps {
 
 const Entry = (props: EntryProps) => {
   const [entry, setEntry] = useState<IEntry>({
-    words: "",
-    category: "",
-    hint: "",
+    w: '',
+    c: '',
+    h: '',
   });
 
   const handleInputChange = (
@@ -35,8 +35,8 @@ const Entry = (props: EntryProps) => {
           type="text"
           name="word"
           placeholder="word(s)"
-          value={entry.words}
-          onChange={(e) => handleInputChange(e, "words")}
+          value={entry.w}
+          onChange={(e) => handleInputChange(e, 'w')}
           maxLength={50}
           required
         ></input>
@@ -45,8 +45,8 @@ const Entry = (props: EntryProps) => {
           type="text"
           name="category"
           placeholder="category"
-          value={entry.category}
-          onChange={(e) => handleInputChange(e, "category")}
+          value={entry.c}
+          onChange={(e) => handleInputChange(e, 'c')}
           maxLength={30}
           required
         ></input>
@@ -55,8 +55,8 @@ const Entry = (props: EntryProps) => {
           type="text"
           name="hint"
           placeholder="hint"
-          value={entry.hint}
-          onChange={(e) => handleInputChange(e, "hint")}
+          value={entry.h}
+          onChange={(e) => handleInputChange(e, 'h')}
           maxLength={100}
         ></input>
       </div>

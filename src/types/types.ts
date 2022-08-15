@@ -1,9 +1,9 @@
-import { type } from "os";
+import { type } from 'os';
 
 export interface IEntry {
-  words: string;
-  category: string;
-  hint: string;
+  w: string;
+  c: string;
+  h: string;
 }
 
 export interface DecodingResult {
@@ -16,5 +16,5 @@ export interface HangmanLetterValue {
   indexes: number[];
 }
 
-export const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+export const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 export const WON_SCORE = 10;

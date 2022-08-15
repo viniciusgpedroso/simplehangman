@@ -49,7 +49,7 @@ const PlayPage = () => {
           gameState === GameState.NEXT_GAME) &&
           currentEntry && (
             <Hangman
-              key={currentEntry.words}
+              key={currentEntry.w}
               onEntryFinished={onEntryFinished}
               currentEntry={currentEntry}
             />

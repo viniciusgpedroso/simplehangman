@@ -18,7 +18,7 @@ const Hangman = (props: HangmanProps) => {
   const [lives, setLives] = useState(STARTING_LIVES);
   const [status, setStatus] = useState(HangmanStatus.ONGOING);
   const [hangman, setHangman] = useState(
-    createHangmanMapFromWords(props.currentEntry.words)
+    createHangmanMapFromWords(props.currentEntry.w)
   );
   const [showHint, setShowHint] = useState(false);
 
@@ -77,11 +77,11 @@ const Hangman = (props: HangmanProps) => {
   return (
     <div className="hangman">
       <div className="banner">
-        <div className="category">{props.currentEntry.category}</div>
+        <div className="category">{props.currentEntry.c}</div>
         <div>{getStatus()}</div>
       </div>
       <div className="hangman-show">
-        {props.currentEntry.words.split(/\s+/gm).map((word, index) => (
+        {props.currentEntry.w.split(/\s+/gm).map((word, index) => (
           <HangmanWord
             key={index}
             word={word}
@@ -91,14 +91,12 @@ const Hangman = (props: HangmanProps) => {
         ))}
       </div>
       <div
-        className={hintClassName(props.currentEntry.hint)}
+        className={hintClassName(props.currentEntry.h)}
         onClick={() => setShowHint(true)}
       >
         &#128161;Hint
       </div>
-      {showHint && (
-        <div className="hint-tip">Hint: {props.currentEntry.hint}</div>
-      )}
+      {showHint && <div className="hint-tip">Hint: {props.currentEntry.h}</div>}
       <div className="alphabet-show">
         {alphabet.split('').map((letter) => (
           <div
