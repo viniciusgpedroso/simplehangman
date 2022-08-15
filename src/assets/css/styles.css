@@ -31,27 +31,33 @@ body {
 
 input {
   text-transform: uppercase;
+  max-width: 10rem;
 }
 
-textarea {
+.area-wrapper {
+  float: left;
   width: 100%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+.area-wrapper > textarea {
+  width: 100%;
+  height: 70vh;
+  max-width: 100%;
   border: 2px solid #eaeaea;
   border-radius: 4px;
   background-color: #121212;
   color: #eaeaea;
-  font-size: 0.8rem;
+  font-size: 1rem;
   resize: none;
 }
 
 .page {
   display: flex;
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
-  height: 80vh;
-  margin: 50px 0;
+  height: 100vmin;
+  margin: 0 auto;
 }
 
 .extra-padding {
@@ -64,12 +70,11 @@ textarea {
   min-width: 60vw;
   max-width: 80vw;
   min-height: 20vmin;
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
-  margin: 0;
+  margin: auto;
   background-color: #121212;
   border-radius: 10px;
-  position: relative;
 }
 
 .button {
@@ -134,8 +139,7 @@ textarea {
   display: flex;
   font-size: 2rem;
   justify-content: center;
-  width: 100%;
-  margin: 5px;
+  margin: 20px;
 }
 
 .entry-tip {
@@ -161,61 +165,26 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 3em;
+  width: 100%;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  background-color: #be0000;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .category {
-  --f: 10px; /* control the folded part*/
-  --r: 15px; /* control the ribbon shape */
-  --t: 10px; /* the top offset */
-
-  position: absolute;
-  inset: var(--t) calc(-1 * var(--f)) auto auto;
-  padding: 0 10px var(--f) calc(10px + var(--r));
+  align-self: center;
   font-size: 2rem;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - var(--f)),
-    calc(100% - var(--f)) 100%,
-    calc(100% - var(--f)) calc(100% - var(--f)),
-    0 calc(100% - var(--f)),
-    var(--r) calc(50% - var(--f) / 2)
-  );
-  background: #be0000;
-  box-shadow: 0 calc(-1 * var(--f)) 0 inset #0005;
-  max-width: 60%;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-}
-
-.life {
-  --f: 10px; /* control the folded part*/
-  --r: 15px; /* control the ribbon shape */
-  --t: 10px; /* the top offset */
-
-  margin-top: auto;
-  font-size: 1.5rem;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  min-width: 4.5em;
-  inset: var(--t) auto auto calc(-1 * var(--f));
-  padding: 0 calc(10px + var(--r)) var(--f) 20px;
-  clip-path: polygon(
-    100% 0,
-    0 0,
-    0 calc(100% - var(--f)),
-    calc(var(--f)) 100%,
-    calc(var(--f)) calc(100% - var(--f)),
-    100% calc(100% - var(--f)),
-    calc(100% - var(--r)) calc(50% - var(--f) / 2)
-  );
-  background: #be0000;
-  box-shadow: 0 calc(-1 * var(--f)) 0 inset #0005;
+  margin: 10px 10px 0 10px;
+  text-align-last: center;
 }
 
 .heart {
@@ -225,16 +194,21 @@ textarea {
 .hangman-word {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 0.5em;
   justify-content: center;
+  margin: 1em 1em 0 1em;
+  background-color: #1b1b1b;
+  border-radius: 5px;
 }
 
 .hangman-letter {
   display: flex;
   background-color: #282828;
   font-size: 1.5rem;
-  height: 1.25em;
-  width: 1.25em;
+  height: 5vw;
+  width: 5vw;
+  max-width: 1.25em;
+  max-height: 1.25em;
   margin: 5px;
   padding: 2px;
   justify-content: center;
@@ -262,7 +236,7 @@ textarea {
   display: flex;
   padding: 5px 10px 5px 0;
   height: 1.25em;
-  margin: 50px;
+  margin: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -313,11 +287,11 @@ textarea {
 }
 
 .hint-tip {
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 
 .alphabet-show {
-  margin: 25px;
+  margin: 0 20px 20px 20px;
 }
 
 .alphabet-show,

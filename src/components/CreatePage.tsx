@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { IEntry } from "../types/types";
-import { Buffer } from "buffer";
-import Entry from "./Entry";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { IEntry } from '../types/types';
+import { Buffer } from 'buffer';
+import Entry from './Entry';
 
 const CreatePage = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const CreatePage = () => {
 
   return (
     <div className="page">
-      <div className="main-area extra-padding">
+      <div className="main-area">
         <div className="entry-header">Entries</div>
         <div className="entry-tip">
           Fill entries with words and categories. Hints are optional.
@@ -42,10 +42,10 @@ const CreatePage = () => {
           className="button md-button highlight-button"
           onClick={copyEncodedToClipboard}
         >
-          {copied ? "Copied!" : "Create"}
+          {copied ? 'Copied!' : 'Create'}
         </div>
         {copied && (
-          <div className="button md-button" onClick={() => navigate("/play")}>
+          <div className="button md-button" onClick={() => navigate('/play')}>
             PLAY!
           </div>
         )}
@@ -55,7 +55,7 @@ const CreatePage = () => {
 };
 
 const getEmptyEntry = (): IEntry => {
-  return { words: "", category: "", hint: "" };
+  return { words: '', category: '', hint: '' };
 };
 
 const createBase64JSON = (entries: IEntry[]): string => {
@@ -73,7 +73,7 @@ const createBase64JSON = (entries: IEntry[]): string => {
     return acc;
   }, []);
   const entriesJSON = JSON.stringify(processedEntries);
-  return Buffer.from(entriesJSON, "utf8").toString("base64");
+  return Buffer.from(entriesJSON, 'utf8').toString('base64');
 };
 
 export default CreatePage;

@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { DecodingResult, IEntry, WON_SCORE } from "../types/types";
-import Decoder from "./Decoder";
-import Hangman from "./Hangman";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { DecodingResult, IEntry, WON_SCORE } from '../types/types';
+import Decoder from './Decoder';
+import Hangman from './Hangman';
 
 const PlayPage = () => {
   const navigate = useNavigate();
@@ -61,11 +61,10 @@ const PlayPage = () => {
         )}
         {gameState === GameState.OVER && (
           <div>
-            <div className="extra-padding"></div>
             <div className="entry-header">
               Score: {score.score} / {score.maxScore}
             </div>
-            <div className="button big-button" onClick={() => navigate("home")}>
+            <div className="button big-button" onClick={() => navigate('home')}>
               Play again
             </div>
           </div>

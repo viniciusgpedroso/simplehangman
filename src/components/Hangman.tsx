@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   alphabet,
   HangmanLetterValue,
   IEntry,
   WON_SCORE,
-} from "../types/types";
-import { createHangmanMapFromWords } from "../types/utils";
-import HangmanWord from "./HangmanWord";
-import heartIcon from "../assets/images/heart-solid.svg";
+} from '../types/types';
+import { createHangmanMapFromWords } from '../types/utils';
+import HangmanWord from './HangmanWord';
+import heartIcon from '../assets/images/heart-solid.svg';
 
 interface HangmanProps {
   onEntryFinished: (score: number) => void;
@@ -34,11 +34,11 @@ const Hangman = (props: HangmanProps) => {
     }
   };
 
-  const statusString = () => {
+  const getStatus = () => {
     if (status == HangmanStatus.WIN) {
-      return "YOU WON!";
+      return 'YOU WON!';
     } else if (status === HangmanStatus.LOST) {
-      return "YOU LOSE!";
+      return 'YOU LOSE!';
     } else {
       // ♥
       const life = Math.max(0, lives);
@@ -55,14 +55,14 @@ const Hangman = (props: HangmanProps) => {
   };
 
   const letterClassName = (letter: string): string => {
-    const clicked = "letter-clicked";
-    const bkg = " alphabet-letter";
+    const clicked = 'letter-clicked';
+    const bkg = ' alphabet-letter';
     return hangman.get(letter)?.clicked ? clicked.concat(bkg) : bkg;
   };
 
   const hintClassName = (hint: string): string => {
     const available = hint.length > 0 && !showHint;
-    return available ? "hint" : "hint-unavailable";
+    return available ? 'hint' : 'hint-unavailable';
   };
 
   useEffect(() => {
@@ -76,8 +76,10 @@ const Hangman = (props: HangmanProps) => {
 
   return (
     <div className="hangman">
-      <div className="life">{statusString()}</div>
-      <div className="category">{props.currentEntry.category}</div>
+      <div className="banner">
+        <div className="category">{props.currentEntry.category}</div>
+        <div>{getStatus()}</div>
+      </div>
       <div className="hangman-show">
         {props.currentEntry.words.split(/\s+/gm).map((word, index) => (
           <HangmanWord
@@ -98,7 +100,7 @@ const Hangman = (props: HangmanProps) => {
         <div className="hint-tip">Hint: {props.currentEntry.hint}</div>
       )}
       <div className="alphabet-show">
-        {alphabet.split("").map((letter) => (
+        {alphabet.split('').map((letter) => (
           <div
             key={letter}
             className={letterClassName(letter)}
