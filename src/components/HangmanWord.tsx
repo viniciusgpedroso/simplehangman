@@ -1,5 +1,5 @@
-import { HangmanLetterValue, IEntry } from "../types/types";
-import { alphabet } from "../types/types";
+import { HangmanLetterValue } from '../types/types';
+import { alphabet } from '../types/types';
 
 interface HangmanWordProps {
   word: string;
@@ -10,10 +10,10 @@ interface HangmanWordProps {
 const HangmanWord = (props: HangmanWordProps) => {
   return (
     <div className="hangman-word">
-      {props.word.split("").map((letter, index) => {
+      {props.word.split('').map((letter, index) => {
         if (alphabet.includes(letter)) {
           const clicked = props.map.get(letter)?.clicked;
-          const classname = clicked ? "hangman-letter" : "hangman-letter wrong";
+          const classname = clicked ? 'hangman-letter' : 'hangman-letter wrong';
           return (
             <div key={index} className={classname}>
               {(clicked || props.showAll) && letter}

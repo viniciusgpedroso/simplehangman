@@ -16,5 +16,10 @@ export interface HangmanLetterValue {
   indexes: number[];
 }
 
+export interface IProgress {
+  current: number;
+  total: number;
+}
+
 export const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 export const WON_SCORE = 10;
